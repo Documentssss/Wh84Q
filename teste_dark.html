@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita Digital | Memed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuração para o Tailwind reconhecer a classe 'dark'
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        :root { --primary: #6161FF; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-950">
+
+    <div class="max-w-md mx-auto bg-white dark:bg-gray-900 min-h-screen shadow-lg flex flex-col transition-colors duration-300">
+        
+        <header class="bg-[#F8F9FF] dark:bg-gray-800 p-4 flex items-center justify-between border-b dark:border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#6161FF] rounded-full flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 10.3812C13.0614 8.89846 14.5873 7.92786 16.3974 7.92786C18.5888 7.92786 20 9.21405 20 11.444C20 13.2081 19.4179 14.8322 18.745 16.0723H16.7979L16.783 16.0395C17.6464 14.5925 18.2285 12.8553 18.2285 11.4664C18.2285 10.1385 17.508 9.39418 16.4123 9.39418C14.8671 9.39418 13.3785 10.7191 12.0283 13.4835H11.9702C10.6171 10.7191 9.14027 9.39418 7.58766 9.39418C6.49203 9.39418 5.77148 10.1355 5.77148 11.4664C5.77148 12.8553 6.35356 14.5985 7.21695 16.0395L7.20205 16.0723H5.25496C4.58209 14.8322 4 13.2081 4 11.444C4 9.21405 5.4068 7.92786 7.60256 7.92786C9.41271 7.92786 10.9386 8.89846 12 10.3812Z" fill="white"></path>
+                    </svg>
+                </div>
+                <button onclick="toggleDarkMode()" class="p-2 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-800 dark:text-yellow-400">
+                    <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                    <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </div>
+            <button class="text-gray-400 hover:text-blue-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+        </header>
+
+        <section class="p-6 bg-[#F8F9FF] dark:bg-gray-800/50 space-y-4">
+            <div>
+                <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Receita enviada por</p>
+                <h2 class="text-lg font-bold text-gray-800 dark:text-gray-100">Dr. Boris Cassio de Souza</h2>
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-lg p-3 flex justify-between items-center text-gray-800 dark:text-blue-200">
+                <p class="text-sm font-medium">Código: <span class="font-bold text-blue-700 dark:text-blue-400">FNs33P</span></p>
+                <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"></path></svg>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="baixarReceita()" class="border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition">
+                    Ver Detalhes
+                </button>
+                <button onclick="baixarReceita()" class="bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition shadow-md">
+                    Baixar PDF
+                </button>
+            </div>
+        </section>
+
+        <main class="flex-grow p-6 space-y-6">
+            <h3 class="text-xl font-bold text-gray-700 dark:text-gray-200">Itens da sua receita</h3>
+            
+            <div class="flex gap-4 p-4 border dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+                <div class="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img src="https://cdn-icons-png.flaticon.com/512/822/822143.png" alt="Icon" class="w-8 invert dark:invert-0">
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-gray-800 dark:text-gray-100">Atestado Médico</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Afastamento de 02 dias por motivo de doença <strong class="dark:text-white">CID H66</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-indigo-600 dark:bg-indigo-700 rounded-2xl p-6 text-white space-y-3">
+                <h4 class="font-bold">Vantagens Memed</h4>
+                <p class="text-sm opacity-90">Compre medicamentos e agende exames sem sair de casa.</p>
+                <a href="#" class="inline-block text-sm font-bold underline">Saiba mais</a>
+            </div>
+        </main>
+
+        <nav class="border-t dark:border-gray-700 bg-white dark:bg-gray-900 p-2">
+            <ul class="flex justify-around items-center">
+                <li class="flex flex-col items-center gap-1 text-blue-600 dark:text-blue-400 p-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"></path></svg>
+                    <span class="text-[10px] font-bold">Receita</span>
+                </li>
+                <li class="flex flex-col items-center gap-1 text-gray-400 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-[10px] font-bold">Histórico</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        // Função para alternar entre Dark e Light
+        function toggleDarkMode() {
+            const html = document.getElementById('html-tag');
+            html.classList.toggle('dark');
+            
+            // Guardar a preferência do utilizador
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Verificar se o utilizador já tinha escolhido um tema antes
+        if (localStorage.getItem('theme') === 'dark') {
+            document.getElementById('html-tag').classList.add('dark');
+        }
+
+        function baixarReceita() {
+            alert("A preparar o download seguro...");
+            // Lógica de download aqui (conforme o código anterior)
+        }
+    </script>
+</body>
+</html>
