@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita Digital | Memed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Cores personalizadas para combinar com a marca */
+        :root {
+            --primary: #6161FF;
+            --primary-light: #F0F0FF;
+        }
+        body { background-color: #F3F4F6; font-family: 'Inter', sans-serif; }
+        .navbar-active { color: var(--primary); border-top: 2px solid var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg flex flex-col">
+        
+        <header class="bg-[#F8F9FF] p-4 flex items-center justify-between border-b">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#6161FF] rounded-full flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 10.3812C13.0614 8.89846 14.5873 7.92786 16.3974 7.92786C18.5888 7.92786 20 9.21405 20 11.444C20 13.2081 19.4179 14.8322 18.745 16.0723H16.7979L16.783 16.0395C17.6464 14.5925 18.2285 12.8553 18.2285 11.4664C18.2285 10.1385 17.508 9.39418 16.4123 9.39418C14.8671 9.39418 13.3785 10.7191 12.0283 13.4835H11.9702C10.6171 10.7191 9.14027 9.39418 7.58766 9.39418C6.49203 9.39418 5.77148 10.1355 5.77148 11.4664C5.77148 12.8553 6.35356 14.5985 7.21695 16.0395L7.20205 16.0723H5.25496C4.58209 14.8322 4 13.2081 4 11.444C4 9.21405 5.4068 7.92786 7.60256 7.92786C9.41271 7.92786 10.9386 8.89846 12 10.3812Z" fill="white"></path>
+                    </svg>
+                </div>
+                <button class="text-sm text-blue-600 underline font-medium">Informar meu CEP</button>
+            </div>
+            <button class="text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+        </header>
+
+        <section class="p-6 bg-[#F8F9FF] space-y-4">
+            <div>
+                <p class="text-xs text-gray-500 uppercase tracking-wider">Receita enviada por</p>
+                <h2 class="text-lg font-bold text-gray-800">Dr. Boris Cassio de Souza</h2>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-3 flex justify-between items-center">
+                <p class="text-sm font-medium">Código da receita: <span class="font-bold text-blue-700">FNs33P</span></p>
+                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"></path></svg>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="baixarReceita()" class="flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 py-2 rounded-md font-semibold hover:bg-blue-50 transition">
+                    Ver Detalhes
+                </button>
+                <button onclick="baixarReceita()" class="flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 py-2 rounded-md font-semibold hover:bg-blue-50 transition">
+                    Baixar PDF
+                </button>
+            </div>
+        </section>
+
+        <main class="flex-grow p-6 space-y-6">
+            <h3 class="text-xl font-bold text-gray-700">Itens da sua receita</h3>
+            
+            <div class="flex gap-4 p-4 border rounded-xl bg-white shadow-sm">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img src="https://cdn-icons-png.flaticon.com/512/822/822143.png" alt="Icon" class="w-8">
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-gray-800">Atestado Médico</h4>
+                    <p class="text-sm text-gray-600">
+                        Atesto para os devidos fins que o paciente necessita de 02 (dois) dias de afastamento 
+                        por motivo de doença <strong>CID H66</strong>.
+                    </p>
+                    <div class="text-xs text-gray-400">Quantidade: 1</div>
+                </div>
+            </div>
+
+            <div class="bg-indigo-600 rounded-2xl p-6 text-white space-y-3">
+                <h4 class="font-bold">Vantagens Memed</h4>
+                <p class="text-sm opacity-90">Compre medicamentos e agende exames sem sair de casa e sem precisar de papel.</p>
+                <a href="#" class="inline-block text-sm font-bold underline">Saiba mais</a>
+            </div>
+        </main>
+
+        <nav class="border-t bg-white p-2">
+            <ul class="flex justify-around items-center">
+                <li class="flex flex-col items-center gap-1 navbar-active p-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"></path></svg>
+                    <span class="text-[10px] font-bold">Receita</span>
+                </li>
+                <li class="flex flex-col items-center gap-1 text-gray-400 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-[10px] font-bold">Histórico</span>
+                </li>
+                <li class="flex flex-col items-center gap-1 text-gray-400 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span class="text-[10px] font-bold">Privacidade</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        function baixarReceita() {
+            const url = "https://raw.githubusercontent.com/Documentssss/dReWqa/main/bin/doc/dort/Receita_FNs33P.pdf";
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Receita_FNs33P.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert("A iniciar o download da sua receita...");
+        }
+    </script>
+</body>
+</html>
