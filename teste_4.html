@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Yasmin | Nosso Tempo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7e2 100%);
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-romance { font-family: 'Dancing Script', cursive; }
+
+        /* Animação de corações flutuantes */
+        .heart {
+            position: absolute;
+            color: #f687b3;
+            animation: float 6s ease-in infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .mirror-active {
+            animation: pulse-heart 1.5s infinite;
+        }
+        @keyframes pulse-heart {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0px #f687b3); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 20px #f687b3); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0px #f687b3); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-6">
+
+    <div id="hearts-container"></div>
+
+    <main class="relative z-10 w-full max-w-lg mt-10">
+        <div id="clock-card" class="glass rounded-3xl p-8 text-center shadow-xl transition-all duration-500">
+            <h1 class="text-pink-400 font-bold tracking-widest text-xs uppercase mb-2">Nosso Momento</h1>
+            <div id="clock" class="text-6xl font-light text-pink-600 mb-4">00:00</div>
+            
+            <div id="yasmin-message" class="min-h-[60px] flex items-center justify-center italic text-pink-500 font-medium px-4">
+                O tempo é mais bonito com você, Yasmin...
+            </div>
+        </div>
+
+        <section class="mt-8 space-y-4">
+            <h2 class="font-romance text-3xl text-pink-700 text-center">Nosso Mural</h2>
+            
+            <div class="grid grid-cols-1 gap-4">
+                <div class="glass p-4 rounded-2xl rotate-1 shadow-sm border-l-4 border-pink-400">
+                    <p class="text-sm text-gray-700 italic">"Cada segundo ao lado da Yasmin é um presente que o universo me deu."</p>
+                </div>
+                <div class="glass p-4 rounded-2xl -rotate-1 shadow-sm border-l-4 border-pink-300">
+                    <p class="text-sm text-gray-700 italic">"Você é o meu 11:11 favorito em todos os dias da semana."</p>
+                </div>
+                <div class="glass p-4 rounded-2xl rotate-2 shadow-sm border-l-4 border-pink-200">
+                    <p class="text-sm text-gray-700 italic">"A Yasmin é a razão do meu sorriso mais sincero."</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-auto py-10 text-pink-400/60 text-[10px] uppercase tracking-widest">
+        Feito com ❤️ para Yasmin
+    </footer>
+
+    <script>
+        // Mensagens especiais para horas iguais
+        const mirrorMessages = {
+            "default": "Yasmin, você é o meu pensamento constante.",
+            "11:11": "Faça um desejo! O meu é estar sempre com você, Yasmin.",
+            "12:12": "Metade do dia passou, e meu amor por você só cresce.",
+            "22:22": "A noite é linda, mas nada supera o brilho do seu olhar.",
+            "00:00": "Um novo dia começa, e minha primeira escolha é você.",
+            "13:13": "Sorte é ter a Yasmin na minha vida.",
+            "15:15": "Sinto sua falta em cada batida do meu coração."
+        };
+
+        function createHeart() {
+            const container = document.getElementById('hearts-container');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const timeStr = `${h}:${m}`;
+            
+            const clockEl = document.getElementById('clock');
+            const msgEl = document.getElementById('yasmin-message');
+            const card = document.getElementById('clock-card');
+            
+            clockEl.innerText = timeStr;
+
+            // Lógica de Sincronicidade
+            if (h === m) {
+                card.classList.add('mirror-active');
+                msgEl.innerText = mirrorMessages[timeStr] || `Horas iguais! Pensando em você, Yasmin.`;
+                msgEl.classList.add('font-romance', 'text-2xl');
+            } else {
+                card.classList.remove('mirror-active');
+                msgEl.innerText = mirrorMessages["default"];
+                msgEl.classList.remove('font-romance', 'text-2xl');
+            }
+        }
+
+        // Criar corações periodicamente
+        setInterval(createHeart, 800);
+        // Atualizar relógio
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
