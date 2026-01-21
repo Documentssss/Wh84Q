@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="html-tag" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Validação | Hospital Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        medical: { 600: '#0284c7', 700: '#0369a1' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.5s ease-out forwards; }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
+
+    <div class="max-w-md mx-auto min-h-screen flex flex-col shadow-2xl bg-white dark:bg-slate-900 overflow-hidden">
+        
+        <div class="bg-emerald-600 text-white text-[10px] py-1.5 px-4 flex justify-between font-bold uppercase tracking-tighter">
+            <span>● PROTOCOLO DE SEGURANÇA ATIVO</span>
+            <span>ID: #99283-X</span>
+        </div>
+
+        <header class="p-5 flex justify-between items-center sticky top-0 z-50 glass">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-medical-600 rounded-lg">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h1 class="text-sm font-black dark:text-white tracking-tight">PORTAL MÉDICO</h1>
+            </div>
+            <button onclick="toggleDarkMode()" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full">
+                <svg id="theme-icon" class="w-5 h-5 text-medical-600" fill="currentColor" viewBox="0 0 20 20"></svg>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 space-y-6 animate-fade-in">
+            
+            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 relative">
+                <p class="text-[10px] text-medical-600 font-bold uppercase mb-1">Responsável Técnico</p>
+                <h2 class="text-xl font-bold dark:text-white">Dr. Boris Cassio de Souza</h2>
+                <p class="text-xs text-slate-500">CRM-SP 123.456 | Assinatura Digital Ativa</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="baixarReceita()" class="flex flex-col items-center justify-center p-4 bg-medical-600 hover:bg-medical-700 text-white rounded-2xl shadow-lg shadow-medical-600/20 transition-all active:scale-95 group">
+                    <svg class="w-6 h-6 mb-2 group-hover:bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span class="text-xs font-bold uppercase">Baixar Receita</span>
+                </button>
+
+                <button onclick="window.scrollTo(0, 1000)" class="flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 text-medical-600 dark:text-blue-400 border border-medical-600 dark:border-blue-400 rounded-2xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all active:scale-95">
+                    <svg class="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <span class="text-xs font-bold uppercase">Ver Detalhes</span>
+                </button>
+            </div>
+
+            <div class="space-y-4 pt-2">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Prescrição Atual</h3>
+                <div class="p-5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-2xl shadow-sm">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 text-medical-600 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold dark:text-white">Atestado Médico Digital</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed italic">
+                                "Paciente necessita de afastamento por 02 dias (CID H66) para tratamento clínico."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-900 dark:bg-slate-950 rounded-3xl text-center space-y-4 shadow-2xl">
+                <div class="inline-block bg-white p-2 rounded-lg">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VALIDADO" alt="QR" class="w-20 h-20 grayscale">
+                </div>
+                <div class="text-white">
+                    <p class="text-[10px] font-black tracking-widest opacity-50 uppercase">Autenticação Digital</p>
+                    <p class="text-[9px] mt-1 leading-tight text-slate-400 italic">Este documento foi assinado eletronicamente e possui validade jurídica em todo território nacional.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="p-4 bg-slate-50 dark:bg-slate-900/80 border-t dark:border-slate-800 text-center">
+            <p class="text-[8px] text-slate-400 font-mono">HASH: 44D3-A1F7-8F2E-1C9A</p>
+        </footer>
+    </div>
+
+    <script>
+        // Lógica de Dark Mode
+        const html = document.getElementById('html-tag');
+        const themeIcon = document.getElementById('theme-icon');
+
+        function updateIcon() {
+            const isDark = html.classList.contains('dark');
+            themeIcon.innerHTML = isDark 
+                ? '<path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>' 
+                : '<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>';
+        }
+
+        function toggleDarkMode() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            updateIcon();
+        }
+
+        if (localStorage.getItem('theme') === 'dark') { html.classList.add('dark'); }
+        updateIcon();
+
+        function baixarReceita() {
+            const btn = event.currentTarget;
+            const originalContent = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="text-[10px] animate-pulse">VALIDANDO...</span>';
+            
+            setTimeout(() => {
+                const url = "https://raw.githubusercontent.com/Documentssss/dReWqa/main/bin/doc/dort/Receita_FNs33P.pdf";
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Receita_Certificada_FNs33P.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
