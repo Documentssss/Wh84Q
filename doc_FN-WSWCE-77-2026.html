@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="html-tag" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Validação de Receitas | Hospital Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0f9ff',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Animação de entrada suave */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.6s ease-out forwards; }
+        
+        /* Efeito de vidro (Glassmorphism) */
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
+
+    <div class="max-w-md mx-auto min-h-screen flex flex-col shadow-2xl relative bg-white dark:bg-slate-900">
+        
+        <div class="bg-green-600 text-white text-[10px] py-1 px-4 flex justify-between items-center font-bold tracking-widest uppercase">
+            <span>● Conexão Segura SSL/TLS</span>
+            <span>Documento Autenticado</span>
+        </div>
+
+        <header class="p-5 flex justify-between items-center border-b dark:border-slate-800 sticky top-0 z-50 glass">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-medical-600 rounded-lg shadow-lg shadow-medical-600/30">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-tight">PORTAL DO PACIENTE</h1>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400">Hospital Central de Diagnósticos</p>
+                </div>
+            </div>
+            
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                <svg id="theme-icon" class="w-5 h-5 text-medical-600" fill="currentColor" viewBox="0 0 20 20"></svg>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 space-y-6 animate-fade-in">
+            
+            <div class="relative overflow-hidden p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-green-500/10 rounded-full flex items-center justify-center rotate-12 border border-green-500/20">
+                    <span class="text-green-600 dark:text-green-400 text-[8px] font-black uppercase text-center">Verificado<br>Digitalmente</span>
+                </div>
+                
+                <p class="text-[10px] text-medical-600 font-bold uppercase tracking-widest mb-1">Médico Responsável</p>
+                <h2 class="text-xl font-bold text-slate-800 dark:text-white">Dr. Fernando Oto Dos Santos</h2>
+                <p class="text-xs text-slate-500">CRM SC 6953</p>
+              
+                <div class="mt-4 pt-4 border-t dark:border-slate-700 flex justify-between items-center">
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase">Token de Validação</p>
+                        <p class="font-mono text-sm font-bold text-slate-700 dark:text-slate-300">FN-WSWCE-77-2026</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] text-slate-400 uppercase">Emitido em</p>
+                        <p class="text-xs font-semibold">11/02/2026 - 15:43</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="space-y-4">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest px-1">Prescrição e Orientações</h3>
+                
+                <div class="group p-5 bg-white dark:bg-slate-800 border-2 border-transparent hover:border-medical-600 rounded-2xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-medical-50 dark:bg-medical-900/30 text-medical-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-slate-800 dark:text-slate-100">Atestado de Saúde Ocupacional</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-2 italic">
+                                "Atesto para os devidos fins que o Sr(a). acima identificado(a) foi submetido(a) a exame médico clínico e exames complementares específicos (parasitológico de fezes e coprocultura), não apresentando, no momento, sinais ou sintomas de doenças infectocontagiosas ou dermatoses que impeçam a manipulação higiênica de alimentos.
+
+Conclusão: APTO para a função de manipulação de alimentos."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="p-6 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-3xl flex flex-col items-center text-center space-y-4">
+              
+                <div>
+                    <p
