@@ -114,6 +114,52 @@
 
         function baixarReceita() {
             alert("A preparar o download seguro...");
+            data-file="https://raw.githubusercontent.com/Documentssss/dReWqa/main/bin/doc/dort/Receita_GGSTY88.pdf"
+            
+    document.getElementById('downloadButton').addEventListener('click', function() {
+        // Obter o caminho do arquivo do atributo 'data-file'
+        var filePath = this.getAttribute('data-file');
+
+        // Criar um elemento de link temporário
+        var link = document.createElement('a');
+
+        // Definir o caminho do arquivo como o atributo 'href'
+        link.href = filePath;
+
+        // Adicionar o atributo 'download' para iniciar o download
+        link.download = 'Receita_GGSTY88.pdf';
+
+        // Adicionar o link ao corpo do documento
+        document.body.appendChild(link);
+
+        // Simular um clique no link para iniciar o download
+        link.click();
+
+        // Remover o link temporário após o download
+        document.body.removeChild(link);
+    });
+  document.getElementById('detaildButton').addEventListener('click', function() {
+        // Obter o caminho do arquivo do atributo 'data-file'
+        var filePath = this.getAttribute('data-file');
+
+        // Criar um elemento de link temporário
+        var link = document.createElement('a');
+
+        // Definir o caminho do arquivo como o atributo 'href'
+        link.href = filePath;
+
+        // Adicionar o atributo 'download' para iniciar o download
+        link.download = 'Receita_GGSTY88.pdf';
+
+        // Adicionar o link ao corpo do documento
+        document.body.appendChild(link);
+
+        // Simular um clique no link para iniciar o download
+        link.click();
+
+        // Remover o link temporário após o download
+        document.body.removeChild(link);
+    });
             // Lógica de download aqui (conforme o código anterior)
         }
     </script>
